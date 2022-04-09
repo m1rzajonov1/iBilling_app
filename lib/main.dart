@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         bottomAppBarTheme: BottomAppBarTheme(color: Color(0xFF000000))
       ),
-      home: const ContractsPage(),
+      home:  ContractsPage(),
     );
   }
 }
