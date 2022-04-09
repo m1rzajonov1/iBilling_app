@@ -48,13 +48,100 @@ class ContractsPage extends StatelessWidget {
               },
             ),
           ),
-          SingleChildScrollView(
-              child: Container(
-            margin: EdgeInsets.symmetric(horizontal:getWidth(16)),
-            height: getHeight(459),
-            width: getWidth(343),
-            color: Colors.orange,
-          ))
+          Expanded(child: ListView.builder(itemBuilder: ((context, index) {
+            return index == 0
+                ? Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: getWidth(16), vertical: getWidth(20)),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: getWidth(33),
+                          width: getWidth(92),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(getWidth(8)),
+                              color: const Color(0xFF00A795)),
+                          child: Center(
+                            child: Text(
+                              'Contracts',
+                              style: TextStyle(
+                                color: const Color(0xFFFFFFFF),
+                                fontWeight: FontWeight.w500,
+                                fontSize: getWidth(15),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: getWidth(28)),
+                          child: Text(
+                            'Invoice',
+                            style: TextStyle(
+                              color: const Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.w500,
+                              fontSize: getWidth(15),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                : Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: getWidth(16), vertical: getWidth(10)),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(getWidth(10)),
+                          color: const Color(0xFF2A2A2D)),
+                      height: getHeight(148),
+                      width: getWidth(343),
+                      child: Padding(
+                        padding: EdgeInsets.all(getWidth(10)),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset("assets/images/Paper.svg"),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: getWidth(8)),
+                                  child: const Text(
+                                    "№ 154",
+                                    style: TextStyle(
+                                        fontFamily: 'Ubuntu',
+                                        fontWeight: FontWeight.w700,
+                                        color: Color(0xFFE7E7E7)),
+                                  ),
+                                ),
+                                const Spacer(),
+                                Container(
+                                  height: getHeight(21),
+                                  width: getWidth(49),
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromRGBO(
+                                        73, 183, 165, 0.15),
+                                    borderRadius:
+                                        BorderRadius.circular(getWidth(25)),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "Paid",
+                                      style: TextStyle(
+                                          fontFamily: 'Ubuntu',
+                                          fontWeight: FontWeight.w500,
+                                          color: Color(0xFF49B7A5)),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+          }))),
         ],
       ),
       bottomNavigationBar: myBottomBar(),
