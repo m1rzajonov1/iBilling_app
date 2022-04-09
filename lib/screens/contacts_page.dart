@@ -7,9 +7,39 @@ class ContractsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(items: [
+      appBar: AppBar(
+        leading: Container(
+          margin: const EdgeInsets.all(12),
+          decoration: const BoxDecoration(shape: BoxShape.circle),
+          child: Image.asset('assets/images/Ellipse 13.png'),
+        ),
+        title: const Text("Contracts"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SvgPicture.asset('assets/images/filter.svg'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SvgPicture.asset('assets/images/line.svg'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SvgPicture.asset('assets/images/search.svg'),
+          )
+        ],
+      ),
+      bottomNavigationBar: myBottomBar(),
+    );
+  }
+
+  BottomNavigationBar myBottomBar() {
+    return BottomNavigationBar(
+      backgroundColor: const Color(0xFF000000),
+      items: [
         BottomNavigationBarItem(
-          label: 'Contracts',
+          backgroundColor: const Color(0xFF000000),
+          label: '',
           icon: SvgPicture.asset('assets/images/contracts_activ.svg'),
         ),
         BottomNavigationBarItem(
@@ -28,7 +58,7 @@ class ContractsPage extends StatelessWidget {
           label: 'Profile',
           icon: SvgPicture.asset('assets/images/profile_activ.svg'),
         )
-      ]),
+      ],
     );
   }
 }
