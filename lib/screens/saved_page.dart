@@ -1,10 +1,9 @@
-import 'package:calendar_agenda/calendar_agenda.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:imkon_exam/core/size_config.dart';
 
-class ContractsPage extends StatelessWidget {
-  const ContractsPage({Key? key}) : super(key: key);
+class SavedPage extends StatelessWidget {
+  const SavedPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class ContractsPage extends StatelessWidget {
           decoration: const BoxDecoration(shape: BoxShape.circle),
           child: Image.asset('assets/images/Ellipse 13.png'),
         ),
-        title: const Text("Contracts"),
+        title: const Text("Saved"),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -42,87 +41,35 @@ class ContractsPage extends StatelessWidget {
           )
         ],
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: getHeight(148),
-            width: getWidth(375),
-            child: CalendarAgenda(
-              backgroundColor: const Color(0xFF1E1E20),
-              dateColor: const Color(0xFFD1D1D1),
-              initialDate: DateTime.now(),
-              firstDate: DateTime.now().subtract(Duration(days: 140)),
-              lastDate: DateTime.now().add(Duration(days: 4)),
-              onDateSelected: (date) {
-                print(date);
-              },
-            ),
-          ),
-          Expanded(child: ListView.builder(itemBuilder: ((context, index) {
-            return index == 0
-                ? Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: getWidth(16), vertical: getWidth(20)),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: getWidth(33),
-                          width: getWidth(92),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(getWidth(8)),
-                              color: const Color(0xFF00A795)),
-                          child: Center(
-                            child: Text(
-                              'Contracts',
-                              style: TextStyle(
-                                color: const Color(0xFFFFFFFF),
-                                fontWeight: FontWeight.w500,
-                                fontSize: getWidth(15),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: getWidth(28)),
-                          child: Text(
-                            'Invoice',
-                            style: TextStyle(
-                              color: const Color(0xFFFFFFFF),
-                              fontWeight: FontWeight.w500,
-                              fontSize: getWidth(15),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                : Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: getWidth(16), vertical: getWidth(10)),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(getWidth(10)),
-                          color: const Color(0xFF2A2A2D)),
-                      height: getHeight(148),
-                      width: getWidth(343),
-                      child: Padding(
-                        padding: EdgeInsets.all(getWidth(10)),
-                        child: Column(
-                          children: [
-                            containerBuilderTitle(),
-                            containerBuildertext("Fish:", "Yoldosheva Ziyoda"),
-                            containerBuildertext("Amount:", "1,200,000 UZS"),
-                            containerBuildertext("Last invoice:", "№ 156"),
-                            containerBuilderLastText(
-                                "Number of invoices:", "6", "31.01.2021"),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-          }))),
-        ],
+      body: Expanded(
+        child: ListView.builder(
+          itemBuilder: ((context, index) {
+            return Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getWidth(16), vertical: getWidth(10)),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(getWidth(10)),
+                    color: const Color(0xFF2A2A2D)),
+                height: getHeight(148),
+                width: getWidth(343),
+                child: Padding(
+                  padding: EdgeInsets.all(getWidth(10)),
+                  child: Column(
+                    children: [
+                      containerBuilderTitle(),
+                      containerBuildertext("Fish:", "Yoldosheva Ziyoda"),
+                      containerBuildertext("Amount:", "1,200,000 UZS"),
+                      containerBuildertext("Last invoice:", "№ 156"),
+                      containerBuilderLastText(
+                          "Number of invoices:", "6", "31.01.2021"),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }),
+        ),
       ),
       bottomNavigationBar: myBottomBar(),
     );

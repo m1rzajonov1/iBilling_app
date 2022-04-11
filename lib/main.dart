@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: const AppBarTheme(
             backgroundColor: Color(0XFF000000),
           ),
-          bottomAppBarTheme: BottomAppBarTheme(color: Color(0xFF000000))),
+          bottomAppBarTheme:const BottomAppBarTheme(color: Color(0xFF000000))),
       initialRoute: '/',
       onGenerateRoute: (settings)=> RouterGenerator.generalRoute(settings),
     );
